@@ -1,0 +1,19 @@
+<div class="profile-body" [class]="isLogged === false ? 'blur-effect' : ''">
+  <h3 *ngIf="isOwner">Post new share</h3>
+  <form *ngIf="isOwner" #postShareForm="ngForm" (ngSubmit)="postShare(title.control.value,body.control.value,postShareForm)">
+    <label for="title">Title</label>
+    <input #title="ngModel" ngModel required minlength="5" maxlength="34" name="title">
+    <p class="errors" *ngIf="title.control.touched && title.control.errors?.['required']">title is required</p>
+    <p class="errors" *ngIf="title.control.touched && title.control.errors?.['minlength']">minimum length 5</p>
+    <label for="body">Body</label>
+    <textarea #body="ngModel" ngModel required minlength="10" cols="30" rows="10" name="body"></textarea>
+    <p class="errors" *ngIf="body.control.touched && body.control.errors?.['required']">body is required</p>
+    <p class="errors" *ngIf="body.control.touched && body.control.errors?.['minlength']">minimum length 10</p>
+    <button [disabled]="!postShareForm.control.valid">Share it</button>
+  </form>
+  <h3>Shares</h3>
+  <div class="profile-posts">
+    <h3 *ngIf="!userPosts || userPosts.length === 0">No shares yet</h3>
+    <app-share-post [isLiked]="post.likes.includes(userInfoService.getLoggedUserId())" (likedPost)="likedPostResponse($event)" [userId]="userInfoService.getLoggedUserId()" (postDeleted)="reactOnPostDeletion($event)" [isLogged]="isLogged" [post]="post" *ngFor="let post of userPosts" ></app-share-post>
+  </div>
+</div>

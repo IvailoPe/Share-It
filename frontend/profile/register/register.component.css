@@ -1,0 +1,49 @@
+.register form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register form button{
+    margin-bottom: 15px;
+    color: white;
+    border-width: 3px;
+    border-style: none;
+    margin-top: 9px;
+    border-radius: 4px;
+    height: 30px;
+    width: 65px;
+    background-color: #70ccdb;
+}
+
+.register form button:hover{
+    background-color: white;
+    color: #70ccdb;
+    border-style: solid;
+    border-color: #70ccdb;
+}
+
+.register input{
+    width: 85%;
+}
+
+.register{
+    display: flex;
+    height: 85%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.errors{
+    margin: 0;
+    font-style: italic;
+    color: red;
+}
+
+form.ng-valid {
+    
+}
+
+input.ng-valid{
+  border: 3px solid green
+}
