@@ -1,0 +1,27 @@
+.chat-head {
+  height: 50px;
+  border-color: #70ccdb;
+  border-radius: 15px 15px 0px 0px;
+  border-width: 3px;
+  border-style: solid;
+  min-width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.chat-head-image {
+  border-width: 3px;
+  border-color: green;
+  border-style: solid;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 794px) {
+  .chat-head {
+    min-width: 1px;
+  }
+}
