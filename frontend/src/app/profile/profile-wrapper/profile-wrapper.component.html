@@ -1,0 +1,5 @@
+<main class="profile">
+    <app-profile-head [isLogged]="isAuthenticated()"></app-profile-head>
+    <app-profile-body [isLogged]="isAuthenticated()"></app-profile-body>
+    <app-authtentication-window (refreshUser)="refreshUser()" *ngIf="isAuthenticated() === false"></app-authtentication-window>
+</main>

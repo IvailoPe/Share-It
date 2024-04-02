@@ -1,0 +1,14 @@
+<div class="login">
+    <form (ngSubmit)="logUser(usernameInput.control.value, passwordInput.control.value)" #loginForm="ngForm">
+       <label for="username">Username</label>
+       <input type="text" name="username" ngModel required minlength="3" #usernameInput="ngModel">
+       <p class="errors" *ngIf="usernameInput.control.touched && usernameInput.control.errors?.['required']">username is required</p>
+       <p class="errors" *ngIf="usernameInput.control.touched && usernameInput.control.errors?.['required'] == null && usernameInput.control.errors?.['minlength']">minimum length 3</p>
+       <label for="password">Password</label>
+       <input type="text" name="password" ngModel required minlength="3" #passwordInput="ngModel"> 
+       <p class="errors" *ngIf="passwordInput.control.touched && passwordInput.control.errors?.['required']">password is required</p>
+       <p class="errors" *ngIf="passwordInput.control.touched && passwordInput.control.errors?.['required'] == null && passwordInput.control.errors?.['minlength']">minimum length 3</p>
+       <button [disabled]="!loginForm.control.valid">Log in</button>
+       <p class="errors" *ngIf="error">{{error}}</p>
+    </form>
+</div>
