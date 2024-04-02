@@ -1,0 +1,9 @@
+<div class="notifications-list-action">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+    <span>{{sender.nickname}}</span>
+    <div class="friend-request">
+      <span>Friend Request</span>
+      <button (click)="reactOnFriendRequest('accept')" class="accept btn">Acept</button>
+      <button (click)="reactOnFriendRequest('reject')" class="reject btn">Reject</button>
+    </div>
+ </div>

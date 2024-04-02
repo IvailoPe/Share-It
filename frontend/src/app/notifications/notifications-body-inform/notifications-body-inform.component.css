@@ -1,0 +1,61 @@
+.notifications-list-action {
+  width: 95%;
+  height: 50px;
+  border-width: 2px;
+  border-color: #70ccdb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px auto 10px auto;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://wallpapers.com/images/hd/profile-picture-background-xyyvpmbyouhknwrk.jpg");
+}
+
+.notifications-list-action img {
+  height: 30px;
+  border-radius: 100%;
+  margin-left: 10px;
+}
+
+.notifications-list-action span {
+  color: white;
+  margin-left: 10px;
+}
+
+.notification-post {
+  display: flex;
+  background-color: white;
+  height: 40px;
+  width: 45%;
+  align-items: center;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #70ccdb;
+  border-width: 3px;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.notifications-list-action button{
+  width: 70px; 
+  height: 20px; 
+  border-radius: 4px;
+  border-style: none;
+  background-color: #70ccdb;
+}
+
+.notifications-list-action button:hover{
+  background-color: red;
+  color: white;
+}
+
+@media (max-width: 794px) {
+  .notifications-list-action img {
+    height: 30px;
+    border-radius: 100%;
+    margin-left: 0px;
+  }
+}

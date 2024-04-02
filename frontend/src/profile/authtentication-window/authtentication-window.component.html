@@ -1,8 +1,0 @@
-<div class="login-register-conteiner">
-    <div class="login-register-login-register-btns">
-        <button (click)="toogleOption('login')">Login</button>
-        <button (click)="toogleOption('register')">Register</button>
-    </div>
-    <app-login (refreshUserLogin)="refreshUserUp()"  *ngIf="isTryingToLogin"></app-login>
-    <app-register (refreshUserRegister)="refreshUserUp()" *ngIf="isTryingToRegister"></app-register>
-</div>

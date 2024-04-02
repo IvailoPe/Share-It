@@ -1,0 +1,6 @@
+<main class="notifications">
+  <app-notifications-head></app-notifications-head>
+  <app-notifications-body-friend (destroyElement)="reactOnDestroy($event)" [sender]="friendRequest" *ngFor="let friendRequest of userNotifications?.friendRequests"></app-notifications-body-friend>
+  <app-notifications-body-inform (destroyElement)="reactOnDestroyOnNotification($event)" [notification]="notification" *ngFor="let notification of userNotifications?.liked"></app-notifications-body-inform>
+  <app-notifications-body-inform (destroyElement)="reactOnDestroyOnNotification($event)" [notification]="notification" *ngFor="let notification of userNotifications?.comments"></app-notifications-body-inform>
+</main>

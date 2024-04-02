@@ -1,0 +1,6 @@
+<div class="notifications-list-action">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+    <span (click)="navigateToPost(notification.postId)" >{{notification.personId.nickname}}</span>
+    <div *ngIf="notification.notification === 'like'" class="notification-post">Liked your post<button (click)="reactOnRemove()">Remove</button></div>
+    <div *ngIf="notification.notification === 'comment'" class="notification-post">Commented on your post<button (click)="reactOnRemove()">Remove</button></div>
+</div>

@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileWrapperComponent } from './profile-wrapper/profile-wrapper.component';
+import { NotificationsWrapperComponent } from './notifications-wrapper/notifications-wrapper.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfileWrapperComponent, 
+    component: NotificationsWrapperComponent, 
   },
-  {
-    path: ':id',
-    component: ProfileWrapperComponent
-  }
 ];
 
 @NgModule({
