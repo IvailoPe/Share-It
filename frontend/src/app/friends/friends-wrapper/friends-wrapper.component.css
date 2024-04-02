@@ -1,0 +1,28 @@
+.friend-list {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.friend-list-head {
+  text-align: center;
+  min-width: 600px;
+  height: 60px;
+  background-color: #70ccdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.friend-list-head h3 {
+  margin: 0px;
+}
+
+
+@media (max-width: 794px) {
+    .friend-list-head {
+      min-width: 1px;
+    }
+  }

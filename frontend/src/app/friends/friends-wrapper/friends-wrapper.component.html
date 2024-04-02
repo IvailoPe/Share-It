@@ -1,0 +1,4 @@
+<main class="friend-list">
+    <div class="friend-list-head"><h3>Friend list</h3></div>
+    <app-friend-box (signalForNavigation)="reactOnNavigation($event)" [friend]="friend" *ngFor="let friend of userFriends"></app-friend-box>
+</main>
