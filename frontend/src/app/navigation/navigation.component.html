@@ -1,0 +1,31 @@
+<nav>
+  <img
+    class="navImg"
+    src="../../assets/images/site-logo.png"
+    alt="site-logo"
+    (click)="navigate('/')"
+  />
+  <img
+    class="nav-profile-icon"
+    src="../../assets/images/default-profile-picture.webp"
+    alt=""
+    (click)="navigate('profile')"
+  />
+  <div class="nav-friends-wrapper">
+    <img
+      class="nav-friends-icon"
+      src="../../assets/images/friends-icon.png"
+      alt=""
+      (click)="navigate('friends')"
+    />
+  </div>
+  <div class="nav-notification-wrapper">
+    <img
+      class="nav-notification-icon"
+      src="../../assets/images/notification-icon.png"
+      alt=""
+      (click)="navigate('notifications')"
+    />
+  </div>
+  <button *ngIf="userInfoService.getIsLogged()" (click)="logOutUser()" class="nav-logout-btn">Log out</button>
+</nav>
