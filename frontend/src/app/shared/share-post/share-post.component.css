@@ -1,0 +1,372 @@
+.share {
+  width: 95%;
+  /* height:10%;*/
+  min-height: 1px;
+  max-height: 700px;
+  border: solid #70ccdb 3px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: 20px auto 20px auto;
+}
+
+.profile-picture {
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.profile-name {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  bottom: 12px;
+}
+
+.profile-text {
+  font-size: 0.9rem;
+  margin: 5px 0 11px 0;
+  word-wrap: break-word;
+}
+
+.shareTR-heart {
+  cursor: pointer;
+  margin: auto 0px auto 10px;
+  height: 30px;
+  width: 35px;
+  clip-path: polygon(
+    50% 100%,
+    59% 96%,
+    66% 90%,
+    72% 85%,
+    78% 79%,
+    83% 74%,
+    87% 68%,
+    92% 61%,
+    96% 54%,
+    98% 45%,
+    100% 38%,
+    100% 30%,
+    100% 21%,
+    98% 14%,
+    95% 9%,
+    90% 4%,
+    84% 0%,
+    79% 0%,
+    73% 0%,
+    67% 1%,
+    63% 4%,
+    59% 8%,
+    55% 12%,
+    53% 16%,
+    50% 21%,
+    48% 15%,
+    45% 11%,
+    42% 7%,
+    38% 4%,
+    34% 1%,
+    29% 0%,
+    24% 0,
+    17% 0%,
+    13% 2%,
+    8% 5%,
+    4% 10%,
+    2% 15%,
+    0 23%,
+    0 32%,
+    0 40%,
+    1% 45%,
+    3% 50%,
+    5% 55%,
+    7% 60%,
+    10% 65%,
+    13% 69%,
+    16% 73%,
+    19% 77%,
+    23% 80%,
+    25% 84%,
+    29% 87%,
+    33% 90%,
+    36% 92%,
+    40% 95%,
+    45% 98%
+  );
+}
+
+.shareTR-heart:hover {
+  background-color: #70ccdb;
+}
+
+.shareTR-comments {
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 230px;
+  overflow: auto;
+  overflow-x: hidden;
+  border: solid #70ccdb 3px;
+}
+
+.shareTR-comments form {
+  
+}
+
+.shareTR-comments form input {
+  border-radius: 10px;
+  width: 70%;
+}
+
+.shareTR-comments form button {
+  background-color: #70ccdb;
+  border: none;
+  border-radius: 7px;
+  color: white;
+}
+
+.shareTR-comments form button:hover {
+  background-color: #5b6061;
+  color: #70ccdb;
+}
+
+.shareTR-comments form span {
+  cursor: pointer;
+}
+
+.shareTR-comments-emojies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+}
+
+.shareTR-comment-profile-picture {
+  height: 27px;
+  border-radius: 30px;
+  margin-left: 7px;
+  margin-top: 4px;
+}
+
+.shareTR-comment-profile-name {
+  display: inline;
+  position: relative;
+  bottom: 8px;
+  left: 5px;
+}
+
+.shareTR-comment-profile-heart {
+  margin: auto 0px auto 10px;
+  height: 25px;
+  width: 25px;
+  clip-path: polygon(
+    50% 100%,
+    59% 96%,
+    66% 90%,
+    72% 85%,
+    78% 79%,
+    83% 74%,
+    87% 68%,
+    92% 61%,
+    96% 54%,
+    98% 45%,
+    100% 38%,
+    100% 30%,
+    100% 21%,
+    98% 14%,
+    95% 9%,
+    90% 4%,
+    84% 0%,
+    79% 0%,
+    73% 0%,
+    67% 1%,
+    63% 4%,
+    59% 8%,
+    55% 12%,
+    53% 16%,
+    50% 21%,
+    48% 15%,
+    45% 11%,
+    42% 7%,
+    38% 4%,
+    34% 1%,
+    29% 0%,
+    24% 0,
+    17% 0%,
+    13% 2%,
+    8% 5%,
+    4% 10%,
+    2% 15%,
+    0 23%,
+    0 32%,
+    0 40%,
+    1% 45%,
+    3% 50%,
+    5% 55%,
+    7% 60%,
+    10% 65%,
+    13% 69%,
+    16% 73%,
+    19% 77%,
+    23% 80%,
+    25% 84%,
+    29% 87%,
+    33% 90%,
+    36% 92%,
+    40% 95%,
+    45% 98%
+  );
+}
+
+.shareTR-comment-profile-heart:hover {
+  background-color: #70ccdb;
+}
+
+.shareTR-comment-profile-text {
+  font-size: 0.9rem;
+  margin: 5px 0 11px 0;
+}
+
+.shareTR-comments-btn {
+  cursor: pointer;
+  margin: auto 0px auto 10px;
+  height: 30px;
+  width: 35px;
+  clip-path: polygon(
+    26% 99%,
+    33% 95%,
+    41% 88%,
+    48% 89%,
+    54% 89%,
+    61% 88%,
+    67% 86%,
+    72% 84%,
+    77% 81%,
+    83% 78%,
+    88% 73%,
+    92% 69%,
+    95% 63%,
+    99% 57%,
+    100% 50%,
+    100% 37%,
+    98% 30%,
+    95% 25%,
+    92% 19%,
+    87% 14%,
+    82% 10%,
+    76% 7%,
+    69% 4%,
+    62% 2%,
+    53% 0%,
+    41% 1%,
+    32% 3%,
+    26% 5%,
+    20% 9%,
+    14% 13%,
+    9% 18%,
+    5% 24%,
+    2% 31%,
+    0% 37%,
+    0% 45%,
+    1% 53%,
+    2% 59%,
+    5% 64%,
+    8% 68%,
+    12% 73%,
+    16% 77%,
+    19% 79%,
+    20% 85%,
+    20% 90%,
+    21% 95%,
+    22% 100%
+  );
+}
+
+.shareTR-comments-btn:hover {
+  background-color: #70ccdb;
+}
+
+.shareTR-delete-btn {
+  cursor: pointer;
+  margin: auto 0px auto 10px;
+  height: 30px;
+  width: 35px;
+  clip-path: polygon(
+    100% 100%,
+    99% 94%,
+    96% 88%,
+    92% 81%,
+    89% 74%,
+    85% 66%,
+    80% 58%,
+    76% 51%,
+    82% 39%,
+    88% 27%,
+    94% 15%,
+    100% 3%,
+    97% 0%,
+    51% 24%,
+    3% 0%,
+    0% 5%,
+    24% 50%,
+    0% 95%,
+    3% 100%,
+    50% 77%,
+    94% 100%
+  );
+}
+
+.shareTR-delete-btn:hover {
+  background-color: #70ccdb;
+}
+
+.post-top-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-stats {
+  display: flex;
+  margin-right: 10px;
+}
+
+.post-stats img {
+  height: 20px;
+  margin-right: 4px;
+}
+
+.post-title{
+  margin-right: auto;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.shareTR-comments-bottom-part{
+  position: sticky;
+  bottom: 0px;
+}
+
+.editForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editForm textarea{
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+}
+
+.errors{
+  border-color: red;
+}
+
+.error{
+  margin: 0;
+  font-style: italic;
+  color: red;
+}

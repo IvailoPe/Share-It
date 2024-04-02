@@ -1,0 +1,11 @@
+<div class="shareTR-comment">
+    <img
+      class="shareTR-comment-profile-picture"
+      src="{{comment.owner.profilePicture}}"
+      alt=""
+    />
+    <h4 class="shareTR-comment-profile-name" >{{comment.owner.nickname}}</h4>
+    <img (click)="likeComment()"  *ngIf="isLogged && !(comment.owner._id === userId)" [style.background-color]="isLiked === true ? '#70ccdb' : ''" class="shareTR-comment-profile-heart" src="../../../assets/images/heart-icon.png" alt="">
+    <img (click)="deleteComment()" *ngIf="isLogged && comment.owner._id === userId" src="../../../assets/images/remove-icon.png" alt="" class="shareTR-comment-profile-delete">
+    <p class="shareTR-comment-profile-text" >{{comment.body}}</p>
+</div>

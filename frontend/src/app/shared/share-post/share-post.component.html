@@ -1,0 +1,94 @@
+<div class="share">
+  <div class="post-top-stats">
+    <div class="post-top">
+      <img
+        class="profile-picture"
+        src="{{ post.owner.profilePicture }}"
+        alt=""
+        (click)="getCurrentRoute() && navigateToUser()"
+      />
+      <h3 class="profile-name">{{ post.owner.nickname }}</h3>
+    </div>
+    <span *ngIf="!isEditMode" class="post-title">{{ post.title }}</span>
+    <div class="post-stats">
+      <img src="../../../assets/images/profile-likes-icon.png" alt="" />
+      <span>{{ post.totalLikes }}</span>
+    </div>
+  </div>
+  <p class="profile-text" *ngIf="!isEditMode">
+    {{ post.body }}
+  </p>
+
+  <form *ngIf="isEditMode && post.isOwner" #postShareForm="ngForm" class="editForm" (ngSubmit)="editPost(postShareForm,title.control.value, body.control.value)">
+    <label for="title">Title</label>
+    <input #title="ngModel" ngModel="{{post.title}}" ngModel required minlength="5" maxlength="34" name="title">
+    <p class="error" *ngIf="title.control.touched && title.control.errors?.['required']">title is required</p>
+    <p class="error" *ngIf="title.control.touched && title.control.errors?.['minlength']">minimum length 5</p>
+    <label for="body">Body</label>
+    <textarea #body="ngModel" ngModel="{{post.body}}" required minlength="10" cols="30" rows="10" name="body"></textarea>
+    <p class="error" *ngIf="body.control.touched && body.control.errors?.['required']">body is required</p>
+    <p class="error" *ngIf="body.control.touched && body.control.errors?.['minlength']">minimum length 10</p>
+    <button [disabled]="!postShareForm.control.valid">Edit</button>
+  </form>
+
+  <img
+    *ngIf="!post?.isOwner && isLogged"
+    class="shareTR-heart"
+    src="../../../assets/images/heart-icon.png"
+    alt=""
+    (click)="likePost()"
+    [style.background-color]="isLiked === true ? '#70ccdb' : ''"
+  />
+  <img
+    src="../../../assets/images/comments-icon.png"
+    class="shareTR-comments-btn"
+    alt=""
+    (click)="toggleComments()"
+  />
+  <img
+    *ngIf="post.isOwner"
+    src="../../../assets/images/remove-icon.png"
+    alt=""
+    class="shareTR-delete-btn"
+    (click)="deletePost()"
+  />
+  <button *ngIf="post.isOwner" (click)="toggleEditMode()">Edit</button>
+  <div class="shareTR-comments" *ngIf="showComments">
+    <h3 *ngIf="post?.comments?.length === 0 || !post.comments">No comments yet</h3>
+    <app-share-post-comment (deleteCommentEvent)="reactOnCommentDelete($event)" [postId]="postId" [isLiked]="comment.likes && comment.likes.includes(userId)" [isLogged]="isLogged" [userId]="userId" [comment]="comment" *ngFor="let comment of comments"></app-share-post-comment>
+    <div class="shareTR-comments-bottom-part" *ngIf="!post?.isOwner && isLogged">
+      <div class="shareTR-comments-emojies" *ngIf="showEmojies">
+        <span>😀</span>
+        <span>😁</span>
+        <span>😂</span>
+        <span>🤣</span>
+        <span>😃</span>
+        <span>😄</span>
+        <span>😅</span>
+        <span>😆</span>
+        <span>😉</span>
+        <span>😋</span>
+        <span>😊</span>
+        <span>😎</span>
+        <span>😍</span>
+        <span>😘</span>
+        <span>🥰</span>
+        <span>😗</span>
+        <span>😙</span>
+        <span>😚</span>
+        <span>🙂</span>
+        <span>🤗</span>
+        <span>🤩</span>
+        <span>🤔</span>
+        <span>🤨</span>
+        <span>😐</span>
+        <span>😑</span>
+      </div>
+      <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm, commentInput.control.value)">
+        <input [ngClass]="commentInput.control.touched && commentInput.control.errors ? 'errors' : ''" ngModel #commentInput="ngModel" required maxlength="45" name="comment" placeholder="What a wodnerfull share!" />
+        <span (click)="toggleEmojies()">😀</span>
+        <button [disabled]="!commentForm.control.valid">Add comment</button>
+      </form>
+    </div>
+  </div>
+</div>
