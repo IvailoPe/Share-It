@@ -4,3 +4,10 @@
 
 <h3>Project architecture</h3>
 The app is divided into modules. Each module is lazy loaded and each module corresponds to different page. The modules(pages) are general, friends, chat, notifications, profile and shared. The navigation module is not lazy loaded. All of the modules keep components and functionalities which are mandatory for the page of the module. Each module has one component which is an wrapper and other components which are used inside the wrapper. There are 3 services, one for user requests, one for post requests and one for authentications. The api is kept inside the environment-vars.ts file. All of the interfaces are kept inside the interface folder from which almost all components get their interfaces for vars. The shared module holds the post UI and its comment UI which is used in multiple places and because of that it accepts many variables as states and results from functions. The chat page uses websocket (Subject) which fires when the page is open. There is also an authguard file which guards for unauthorized access. Guests of the site can access the / page and they can login or register, Registered users can access everything except login and register. The registered users can do all of the CRUD operaions.
+
+<h2>How to run</h2>
+<h3>Angular</h3>
+Open the front end folder then open share-it with vs code, in vs codes terminal type ng serve or build.
+
+<h3>Express</h3>
+Open the back end folder in vs code and type npm start to run it with nodemoon or node index.js
