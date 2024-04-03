@@ -12,4 +12,14 @@ Open the front end folder then open share-it with vs code, in vs codes terminal 
 <h3>Express</h3>
 Open the back end folder in vs code and type npm start to run it with nodemoon or node index.js
 
-![image](https://github.com/IvailoPe/Share-It/assets/123314052/6c3aea07-cd5c-46db-b1ba-e946db4d8529)
+<h2>Some pictures from the app</h2>
+
+![image](https://github.com/IvailoPe/Share-It/assets/123314052/5faa27f5-0dee-4b4e-b547-7bc0281e4c47)
+
+![image](https://github.com/IvailoPe/Share-It/assets/123314052/4c0ae331-9702-48c5-99a4-6fe5813a4164)
+
+![image](https://github.com/IvailoPe/Share-It/assets/123314052/1c9bbb82-b1a0-432a-9bfb-d9f6176a094e)
+
+![image](https://github.com/IvailoPe/Share-It/assets/123314052/86e6dfc4-6782-45f4-8527-31f8162d0f50)
+
+![image](https://github.com/IvailoPe/Share-It/assets/123314052/6712aa6a-c877-4166-8c07-ef5e266640a9)
