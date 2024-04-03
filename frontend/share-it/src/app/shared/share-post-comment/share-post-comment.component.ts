@@ -19,9 +19,6 @@ export class SharePostCommentComponent {
   constructor(private postInfoService: PostInfoService) {}
 
   likeComment(){
-    console.log(this.postId);
-    console.log(this.userId);
-
     this.postInfoService.likePostComment(this.postId,this.comment._id,this.userId).subscribe((data) => {
       if(data.error){
         this.deleteCommentEvent.emit(this.comment._id) 
@@ -34,9 +31,6 @@ export class SharePostCommentComponent {
 
   deleteComment(){
      this.postInfoService.deleteComment(this.postId,this.comment._id).subscribe(() => {
-      console.log(this.postId);
-      console.log(this.comment);
-      
       this.deleteCommentEvent.emit(this.comment._id)
      })
   }

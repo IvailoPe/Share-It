@@ -44,7 +44,6 @@ export class ChatBodyComponent implements OnChanges, OnInit, OnDestroy{
 
   sendMessage(message:string, messageForm:NgForm){
     messageForm.reset()
-    console.log(this.messageSenderAndReceiverSubject);
     this.messageSenderAndReceiverSubject.next({
       connect:"post",
       content:message,

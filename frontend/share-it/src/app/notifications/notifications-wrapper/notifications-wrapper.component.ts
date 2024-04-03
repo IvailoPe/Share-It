@@ -23,7 +23,6 @@ export class NotificationsWrapperComponent implements OnInit {
           data.liked[index].notification = 'like';
         }
         this.userNotifications = data;
-        console.log(data);
       });
   }
 

@@ -18,18 +18,13 @@ export class SamePasswordsDirective implements Validator{
 
     const password = control.get("password")?.value;
     const rePassword = control.get("rePassword")?.value;
-
-    console.log(password);
-    console.log(rePassword);
     
     if(password !== rePassword){
-      console.log(2);
       
       return {
         error:"Passwords dont match"
       }
     }
-    console.log(1);
     return null;
   }
 }

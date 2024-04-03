@@ -47,7 +47,6 @@ export class SharePostComponent implements OnChanges, OnInit {
         return b.likes.length - a.likes.length;
       });
     });
-    console.log(this.router.url);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -105,7 +104,6 @@ export class SharePostComponent implements OnChanges, OnInit {
 
   getCurrentRoute() {
     let url = this.router.url;
-    console.log(this.userId);
 
     if (
       url === '/profile' ||
@@ -127,7 +125,6 @@ export class SharePostComponent implements OnChanges, OnInit {
   editPost(Form: NgForm, title: string, body: string) {
     this.isEditMode = false;
     Form.reset();
-    console.log(1);
 
     this.postInfoService.updatePost(this.postId, title, body).subscribe(() => {
       (this.post.title = title), (this.post.body = body);

@@ -62,7 +62,6 @@ export class ProfileHeadComponent implements OnInit {
                 else{
                    this.isInRequests = false;
                 }
-                console.log(1);
                 
                 this.isFriend = false;
               })
@@ -131,7 +130,6 @@ export class ProfileHeadComponent implements OnInit {
   }
 
   editProfile(nickname: string, picture: string, banner: string) {
-    console.log(1);
     this.userInfoService
       .updateUserData(nickname, picture, banner, this.userData?._id as string)
       .subscribe((data) => {

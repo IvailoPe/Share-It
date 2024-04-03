@@ -23,7 +23,6 @@ export class GeneralWrapperComponent implements OnInit {
     }
     this.postInfoService.getAllPosts(this.userId).subscribe((data) => {
       this.posts = data;
-      console.log(this.posts);
     });
   }
 
