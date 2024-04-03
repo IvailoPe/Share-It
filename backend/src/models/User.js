@@ -39,7 +39,6 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.post("validate", function (doc) {
-    console.log("tuka sum hahaahhaha");
     doc.password = bcrypt.hashSync(doc.password, 10);
 })
 

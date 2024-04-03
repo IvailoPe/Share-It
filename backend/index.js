@@ -12,7 +12,6 @@ let expressWs = require('express-ws')(app);
 const connectedClients = new Map()
 
 expressWs.app.ws('/echo', function (ws, req) {
-    console.log(1);
     ws.on('message', async function (msg) {
         let message = JSON.parse(msg);
         if (message.connect === "register") {
@@ -55,7 +54,7 @@ app.use(express.json())
 //app.use(isAuth)
 app.use("/", router);
 
-mongoose.connect(`mongodb://127.0.0.1:27017/share-it`) //DOBAVI DATA BAZI
+mongoose.connect(`mongodb://127.0.0.1:27017/share-it`)
     .then(() => {
         console.log(`Connected to DB`);
         app.listen(port, () => {

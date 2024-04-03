@@ -17,7 +17,6 @@ router.post("/:id", async (req, res) => {
     else {
         if (body.usernameOrPassword) {
             if (await userService.validatePasswords(body.password, req.params.id)) {
-                console.log(body.username);
                 const newData = await userService.updateUserData({ "username": body.username }, req.params.id)
                 res.json(newData)
             }
@@ -29,8 +28,6 @@ router.post("/:id", async (req, res) => {
         }
         else {
             if (await userService.validatePasswords(body.password, req.params.id)) {
-                console.log(1);
-                console.log(body);
                 const newData = await userService.updatePassword(body.newPassword, req.params.id);
                 res.json(newData)
             }
@@ -56,22 +53,18 @@ router.get("/friend/:id", async (req, res) => {
 
 router.post("/request/react", async (req, res) => {
     const data = req.body;
-    console.log(data);
     await userService.reactOnFriendRequest(data.receiverId, data.senderId, data.decision)
     res.json({ task: "done" })
 })
 
 router.post("/notification/react", async (req, res) => {
     const data = req.body;
-    console.log(data);
     await userService.deleteNotification(data.userId, data.notificationId, data.type)
     res.json({ task: "done" })
 })
 
 router.post("/friend/remove/request",async (req,res) => {
-    console.log(2323232323);
     const data = req.body;
-    console.log(data);
     await userService.removeFriend(data.userId,data.friendId)
     res.json({ task: "done" })
 })
