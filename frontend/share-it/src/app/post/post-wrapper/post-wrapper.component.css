@@ -1,0 +1,17 @@
+.post {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden-div{
+    min-width: 600px;
+}
+
+@media (max-width: 794px) {
+    .hidden-div {
+      min-width: 1px;
+    }
+}

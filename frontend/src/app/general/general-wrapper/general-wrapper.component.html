@@ -1,4 +1,0 @@
-<main class="shares">
-  <app-top-filter (sendFilterSignal)="reactOnFilter($event)"></app-top-filter>
-  <app-share-post (likedPost)="likedPostResponse($event)" [userId]="userId" [isLiked]="post.likes.includes(userId)" [isLogged]="isUserLogged" [post]="post" *ngFor="let post of posts"></app-share-post>
-</main>

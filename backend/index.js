@@ -37,7 +37,7 @@ expressWs.app.ws('/echo', function (ws, req) {
                 messageOwner:sender.connectedId,
                 date:new Date()
             })
-            await sender.chatRef.save()
+            await sender.chatRef.save({ validateBeforeSave: false })
         }
     });
 

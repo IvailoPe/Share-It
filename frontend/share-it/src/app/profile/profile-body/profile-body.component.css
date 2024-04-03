@@ -1,0 +1,53 @@
+.profile-body form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-body h3 {
+  text-align: center;
+}
+
+.profile-body textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+}
+
+.profile-body button {
+  display: block;
+  margin: auto;
+  background-color: #70ccdb;
+  border-style: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 72px;
+}
+
+.profile-body button:hover {
+  color: white;
+  background-color: #5b6061;
+}
+
+.profile-posts {
+  margin: auto;
+  height: 100%;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.blur-effect {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+hr{
+  margin-top: 30px;
+  border: 2px solid #70ccdb;
+}
+
+.errors{
+  margin: 0;
+  font-style: italic;
+  color: red;
+}

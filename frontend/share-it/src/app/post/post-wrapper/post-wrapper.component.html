@@ -1,0 +1,4 @@
+<main class="post">
+    <app-share-post *ngIf="post" [isLogged]="true" [userId]="userInfoService.getLoggedUserId()" [post]="post"></app-share-post> 
+    <div class="hidden-div"></div>
+</main>

@@ -1,0 +1,29 @@
+.shares-filter-wrapper {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 600px;
+}
+
+.shares-filter-wrapper button {
+  background-color: #70ccdb;
+  color: white;
+  border: none;
+  height: 30px;
+  width: 90px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.shares-filter-wrapper button:hover {
+  background-color: #5b6061;
+  color: #70ccdb;
+}
+
+@media (max-width: 794px) {
+  .shares-filter-wrapper {
+    min-width: 1px;
+  }
+}

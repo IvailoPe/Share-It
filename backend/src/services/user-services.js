@@ -29,8 +29,8 @@ async function sendFriendRequest(receiverId, senderId) {
   const notificationsOfReceiver = await Notification.findOne({ owner: receiverId });
   notificationsOfReceiver.friendRequests.push(senderId);
   receiver.friendRequests.push(senderId);
-  await notificationsOfReceiver.save()
-  await receiver.save();
+  await notificationsOfReceiver.save({ validateBeforeSave: false })
+  await receiver.save({ validateBeforeSave: false });
 }
 
 async function getAllUserFriends(userId) {
@@ -57,9 +57,11 @@ async function reactOnFriendRequest(receiverId, senderId, decision) {
     notifications.friendRequests.splice(notifications.friendRequests.indexOf(receiverId), 1)
     sender.friendRequests.splice(sender.friendRequests.indexOf(receiverId), 1)
   }
-  await sender.save();
-  await receiver.save()
-  await notifications.save()
+  sender.followers = sender.friendList.length;
+  receiver.followers = receiver.friendList.length;
+  await sender.save({ validateBeforeSave: false });
+  await receiver.save({ validateBeforeSave: false })
+  await notifications.save({ validateBeforeSave: false })
 }
 
 async function deleteNotification(userId, notificationId, type) {
@@ -70,9 +72,24 @@ async function deleteNotification(userId, notificationId, type) {
   else {
     notification.liked.splice(notification.liked.indexOf(notificationId), 1)
   }
-  await notification.save();
+  await notification.save({ validateBeforeSave: false });
 }
 
+async function removeFriend(userId,friendId){
+  const user = await User.findById(userId);
+  const friend = await User.findById(friendId);
+  const chat = await Chat.findOne({
+    owners: { $all: [userId, friendId] }
+  })
+
+  user.friendList.splice(user.friendList.indexOf(friendId),1)
+  friend.friendList.splice(friend.friendList.indexOf(userId),1)
+  user.followers = user.friendList.length
+  friend.followers = friend.friendList.length
+  await chat.deleteOne()
+  await user.save({ validateBeforeSave: false })
+  await friend.save({ validateBeforeSave: false })
+}
 
 
 module.exports = {
@@ -83,5 +100,6 @@ module.exports = {
   sendFriendRequest,
   getAllUserFriends,
   reactOnFriendRequest,
-  deleteNotification
+  deleteNotification,
+  removeFriend
 }

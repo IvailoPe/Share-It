@@ -43,30 +43,38 @@ router.post("/:id", async (req, res) => {
     }
 })
 
-router.post("/friend/request",async (req,res) => {
+router.post("/friend/request", async (req, res) => {
     const body = req.body
-    await userService.sendFriendRequest(body.receiverId,body.senderId);
+    await userService.sendFriendRequest(body.receiverId, body.senderId);
 })
 
-router.get("/friend/:id", async (req,res) => {
-   const userId = req.params.id;
-   const friends = await userService.getAllUserFriends(userId)
-   res.json(friends)
+router.get("/friend/:id", async (req, res) => {
+    const userId = req.params.id;
+    const friends = await userService.getAllUserFriends(userId)
+    res.json(friends)
 })
 
-router.post("/request/react", async (req,res) => {
-   const data = req.body;
-   console.log(data);
-   await userService.reactOnFriendRequest(data.receiverId,data.senderId,data.decision)
-   res.json({task:"done"})
-})
-
-router.post("/notification/react", async (req,res) => {
+router.post("/request/react", async (req, res) => {
     const data = req.body;
     console.log(data);
-    await userService.deleteNotification(data.userId,data.notificationId,data.type)
-    res.json({task:"done"})
- })
+    await userService.reactOnFriendRequest(data.receiverId, data.senderId, data.decision)
+    res.json({ task: "done" })
+})
+
+router.post("/notification/react", async (req, res) => {
+    const data = req.body;
+    console.log(data);
+    await userService.deleteNotification(data.userId, data.notificationId, data.type)
+    res.json({ task: "done" })
+})
+
+router.post("/friend/remove/request",async (req,res) => {
+    console.log(2323232323);
+    const data = req.body;
+    console.log(data);
+    await userService.removeFriend(data.userId,data.friendId)
+    res.json({ task: "done" })
+})
 
 
 module.exports = router

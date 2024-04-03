@@ -16,7 +16,7 @@ async function registerUser(data) {
         friendRequests:[],
         likes:0,
         profilePicture: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-        profileBanner:""
+        profileBanner:"https://wallpapers.com/images/hd/profile-picture-background-xyyvpmbyouhknwrk.jpg"
     })
 
     await Notification.create({

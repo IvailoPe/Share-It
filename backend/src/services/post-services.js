@@ -51,9 +51,9 @@ async function likePost(postId, userId) {
       post.totalLikes++;
       user.likes++
    }
-   await user.save()
-   await post.save()
-   await notification.save()
+   await user.save({ validateBeforeSave: false })
+   await post.save({ validateBeforeSave: false })
+   await notification.save({ validateBeforeSave: false })
 }
 
 async function postComment(postId,userId,comment){
@@ -69,12 +69,15 @@ async function postComment(postId,userId,comment){
       body:comment,
       owner:userId,
    })
-   await post.save();
-   await notification.save();
+   await post.save({ validateBeforeSave: false });
+   await notification.save({ validateBeforeSave: false });
+
+   const addedComment = post.comments[post.comments.length - 1];
 
    return {
       owner:user.toJSON(),
-      body:comment
+      body:comment,
+      _id:addedComment._id
    }
 }
 
@@ -85,9 +88,10 @@ async function getAllPostComments(postId){
 
 async function likeComment(postId,commentId,userId){
   const post = await Post.findById(postId)
+  let isFound = false;
   for (let index = 0; index < post.comments.length; index++) {
-    console.log(post.comments[index]);
     if(post.comments[index]._id.toString() === commentId){
+      isFound = true;
       if(post.comments[index].likes.includes(userId)){
          post.comments[index].likes.splice(post.comments[index].likes.indexOf(userId),1)
       }
@@ -97,13 +101,36 @@ async function likeComment(postId,commentId,userId){
       break;
     }
   }
-  await post.save()
+  if(!isFound){
+   throw new Error()
+  }
+  await post.save({ validateBeforeSave: false })
 }
 
 async function getSinglePost(postId){
    const post = await Post.findById(postId).populate("owner");
    return post.toObject()
 }
+
+async function updatePost(postId,title,body){
+   const post = await Post.findById(postId)
+   post.title = title;
+   post.body = body;
+   await post.save()
+}
+
+async function deleteComment(postId,commentId){
+   const post = await Post.findById(postId)
+   for (let index = 0; index < post.comments.length; index++) {
+      if(post.comments[index]._id.toString() === commentId){
+         post.comments.splice(index,1);
+         break;
+      }
+   }
+   await post.save();
+}
+
+
 
 module.exports = {
    createNewPost,
@@ -114,5 +141,7 @@ module.exports = {
    postComment,
    getAllPostComments,
    likeComment,
-   getSinglePost
+   getSinglePost,
+   updatePost,
+   deleteComment
 }

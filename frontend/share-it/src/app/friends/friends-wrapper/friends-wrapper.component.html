@@ -1,0 +1,5 @@
+<main class="friend-list">
+    <div class="friend-list-head"><h3>Friend list</h3></div>
+    <h3 class="no-friends-text" *ngIf="userFriends && userFriends.length === 0">No friends</h3>
+    <app-friend-box (signalForNavigation)="reactOnNavigation($event)" [friend]="friend" *ngFor="let friend of userFriends"></app-friend-box>
+</main>
